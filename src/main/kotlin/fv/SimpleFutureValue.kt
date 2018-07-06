@@ -1,4 +1,5 @@
-import fv.FutureValue
+package fv
+
 import java.math.BigDecimal
 
 /**
@@ -23,7 +24,7 @@ class SimpleFutureValue(
         if (ratePerPeriod.scale() < 12) {
             ratePerPeriod = ratePerPeriod.setScale(12)
         }
-        return pv * (BigDecimal.ONE + (ratePerPeriod / Calculable.HUNDRED * numberOfPeriods))
+        return pv * (BigDecimal.ONE + (ratePerPeriod / HUNDRED * numberOfPeriods))
     }
 
 }

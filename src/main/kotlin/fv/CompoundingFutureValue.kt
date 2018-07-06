@@ -1,4 +1,5 @@
-import fv.FutureValue
+package fv
+
 import utils.pow
 import java.math.BigDecimal
 
@@ -35,7 +36,7 @@ class CompoundingFutureValue(
         if (ratePerPeriod.scale() < 12) {
             ratePerPeriod = ratePerPeriod.setScale(12)
         }
-        return pv * ((BigDecimal.ONE + (ratePerPeriod / Calculable.HUNDRED)) pow numberOfPeriods)
+        return pv * ((BigDecimal.ONE + (ratePerPeriod / HUNDRED)) pow numberOfPeriods)
     }
 
 }
