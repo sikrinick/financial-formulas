@@ -1,7 +1,9 @@
-
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 import java.math.BigDecimal
 
+@RunWith(JUnit4::class)
 class CompoundingFutureValueTest {
 
     val TWO = 2.toBigDecimal()
@@ -25,6 +27,12 @@ class CompoundingFutureValueTest {
 
         val result12_1 = CompoundingFutureValue(THOUSAND, testPercent, TWELVE, BigDecimal.ONE).result
         val result12_4 = CompoundingFutureValue(THOUSAND, testPercent, TWELVE, FOUR).result
+
+        val result12_1_sec = CompoundingFutureValue(THOUSAND, testPercent.setScale(12) / TWELVE, TWELVE).result
+        val result12_4_sec = CompoundingFutureValue(THOUSAND, testPercent.setScale(12) / TWELVE,  TWELVE * FOUR).result
+
+        assert(result12_1_sec == result12_1)
+        assert(result12_4_sec == result12_4)
 
         val result360_1 = CompoundingFutureValue(THOUSAND, testPercent, DAYS_360, BigDecimal.ONE).result
         val result360_4 = CompoundingFutureValue(THOUSAND, testPercent, DAYS_360, FOUR).result

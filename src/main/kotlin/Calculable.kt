@@ -4,7 +4,7 @@ import kotlin.reflect.KProperty
  * Class, that represents any calculation with lazy invocation and caching of result, until parameters,
  * that are needed for [calculate] and [result], are changed
  */
-abstract class Calculable<T> {
+public abstract class Calculable<T> {
     companion object {
         val HUNDRED = 100.toBigDecimal()
     }
@@ -16,16 +16,9 @@ abstract class Calculable<T> {
 
     /**
      * Getter for result calculation, that supports lazy invocation and caching of result
-     */
-    val result: T by lazyCached({ calculateWithCaching() }, { !cached })
-
-    /**
-     * Returns result of calculation with caching
      * @return calculation result
      */
-    private fun calculateWithCaching(): T {
-        return calculate().also { cached = true }
-    }
+    val result: T by lazyCached({ calculate().also { cached = true } }, { !cached })
 
     /**
      * Returns result of calculation
@@ -52,7 +45,7 @@ abstract class Calculable<T> {
          * @param calculable the object for which the value is requested
          * @param property the metadata for the property, used to get the name of property
          * and store the value associated with that name in the map.
-         * @param value the value to set.
+         * @param new new value to be set.
          */
         operator fun setValue(calculable: Calculable<T>, property: KProperty<*>, new: T ) {
             if (initial != new) {
