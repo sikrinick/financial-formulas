@@ -6,10 +6,13 @@ import java.math.BigDecimal
  * @param ratePerPeriod Rate per period, should be in percent value, for example, as 12%. NOT AS 0.12
  * @param numberOfPeriods number of all periods
  */
-abstract class TimeValueable(
+abstract class TimeValuable(
         ratePerPeriod: BigDecimal,
         numberOfPeriods: BigDecimal
 ): Calculable<BigDecimal>() {
+    companion object {
+        val HUNDRED = 100.toBigDecimal()
+    }
 
     /**
      * Annual rate. Marks result as non-cached on set

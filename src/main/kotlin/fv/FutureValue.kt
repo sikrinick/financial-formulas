@@ -1,7 +1,7 @@
 package fv
 
 import Calculable
-import TimeValueable
+import TimeValuable
 import java.math.BigDecimal
 
 
@@ -16,7 +16,7 @@ abstract class FutureValue(
         pv: BigDecimal,
         ratePerPeriod: BigDecimal,
         numberOfPeriods: BigDecimal
-): TimeValueable(ratePerPeriod, numberOfPeriods) {
+): TimeValuable(ratePerPeriod, numberOfPeriods) {
 
     /**
      * Present value. Marks result as non-cached on set

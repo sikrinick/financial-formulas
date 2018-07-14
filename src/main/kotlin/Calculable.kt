@@ -5,9 +5,6 @@ import kotlin.reflect.KProperty
  * that are needed for [calculate] and [result], are changed
  */
 public abstract class Calculable<T> {
-    companion object {
-        val HUNDRED = 100.toBigDecimal()
-    }
 
     /**
      * Flag for caching
