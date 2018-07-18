@@ -1,6 +1,6 @@
 package fv
 
-import Calculable
+import cacheable.Calculable
 import TimeValuable
 import java.math.BigDecimal
 

@@ -1,3 +1,5 @@
+package cacheable
+
 import java.io.Serializable
 
 /**
