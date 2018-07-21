@@ -17,7 +17,7 @@ public abstract class Calculable<T> {
      * Getter for result calculation, that supports lazy invocation and caching of result
      * @return calculation result
      */
-    val result: T by lazyCached({ calculate().also { cached = true } }, { !cached })
+    protected val result: T by lazyCached({ calculate().also { cached = true } }, { !cached })
 
     /**
      * Returns result of calculation
