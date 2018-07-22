@@ -7,13 +7,16 @@ import java.math.BigDecimal
 @RunWith(JUnit4::class)
 class SimpleFutureValueTest {
 
-    val TWO = 2.toBigDecimal()
-    val THOUSAND = 1000.toBigDecimal()
+    private val two = "2.00".toBigDecimal()
+    private val tenPercent = "0.10".toBigDecimal()
+    private val thousand = "1000.00".toBigDecimal()
+
 
     @Test
     fun basicSimpleTest() {
-        val result1100 = SimpleFutureValue(THOUSAND, BigDecimal.TEN, BigDecimal.ONE).result
-        val result1200 = SimpleFutureValue(THOUSAND, BigDecimal.TEN, TWO).result
+
+        val result1100 = SimpleFutureValue(thousand, tenPercent, BigDecimal.ONE).fv
+        val result1200 = SimpleFutureValue(thousand, tenPercent, two).fv
 
         val expected1100 = 1100.toBigDecimal()
         val expected1200 = 1200.toBigDecimal()
