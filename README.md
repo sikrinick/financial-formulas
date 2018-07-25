@@ -1,5 +1,11 @@
-# financial-formulas
+# financial-formulas v0.0
+# HAS TO BE MODIFIED, DON'T READ IT! TOO OLD
+
 Some financial formulas in Kotlin.
+You can ask me, why do we need it if there is <a href="https://github.com/JavaMoney/jsr354-api">JSR 354 API</a>?
+The point is that you have to specify currency on creation and it tries to update something (currency codes, currency exchange rates, probably) that is a very bad idea for Android app. Also, there are not that much implementations of most basic financial, especially, with BigDecimal.
+
+
 
 <b>SimpleFutureValue</b> - simple Future Value based on next formula: </br>
 FV = PV * (1 + rt) </br>
